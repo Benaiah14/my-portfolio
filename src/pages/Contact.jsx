@@ -3,14 +3,14 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
 
 import Fox from "../models/Fox";
-import useAlert from "../hooks/useAlert";
+
 import { Loader } from "../components";
-import Alert from "../components/Alert";
+
 
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const { alert, showAlert, hideAlert } = useAlert();
+  
   const [loading, setLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState("idle");
 
@@ -32,7 +32,7 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Benaiah",
           from_email: form.email,
           to_email: "benbossax54@gmail.com",
           message: form.message,
@@ -42,11 +42,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          showAlert({
-            show: true,
-            text: "Thank you for your message 😃",
-            type: "success",
-          });
+          
 
           setTimeout(() => {
            
@@ -70,7 +66,7 @@ const Contact = () => {
 
   return (
     <section className='relative flex lg:flex-row flex-col max-container h-[100vh]'>
-      {alert.show && <Alert {...alert} />}
+      
 
       <div className='flex-1 min-w-[50%] flex flex-col'>
         <h1 className='head-text'>Get in Touch</h1>
