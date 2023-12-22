@@ -63,11 +63,7 @@ const Contact = () => {
           console.error(error);
           setCurrentAnimation("idle");
 
-          showAlert({
-            show: true,
-            text: "I didn't receive your message 😢",
-            type: "danger",
-          });
+          
         }
       );
   };
